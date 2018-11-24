@@ -9,7 +9,11 @@ import Typography from '@material-ui/core/Typography';
 const styles = theme => ({
   card: {
     display: 'flex',
-    width: 700
+    width: 700,
+    borderRadius:10,
+    borderWidth: 1, 
+    overflow: 'hidden',
+    marginBottom:15
   },
   details: {
     display: 'flex',

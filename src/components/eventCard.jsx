@@ -53,7 +53,7 @@ class EventsCard extends React.Component {
           </IconButton>
 
           <IconButton aria-label="View" style={{marginLeft: 40}}>
-            <VisibilityIcon style={{color: 'black'}}/>
+          <VisibilityIcon style={{color: 'black'}}/>
           </IconButton>
           <IconButton
             className={classnames(classes.expand, {
@@ -71,6 +71,7 @@ class EventsCard extends React.Component {
             <Typography paragraph>Description:</Typography>
             <Typography paragraph>
              {description}
+             <a href={reference}>Website</a>
             </Typography>
           </CardContent>
         </Collapse>
@@ -87,7 +88,6 @@ const styles = theme => ({
       overflow: 'hidden'
     },
     media: {
-      height: 0,
       paddingTop: '56.25%', // 16:9
       height: 150,
       width: 300,

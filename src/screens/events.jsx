@@ -32,7 +32,7 @@ export default class Events extends Component{
                 <EventsCard 
                 image={"https://guindytimes.com/" + item.image} 
                 title={item.title} date={date.toString().slice(3, 10)} description={item.description}  
-                club={item.club} venue={item.venue} />
+                club={item.club} venue={item.venue} reference={item.reference} />
             )
             })}
           </div>
