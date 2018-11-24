@@ -1,27 +1,27 @@
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import React, { Component } from 'react'
-import News from '../screens/news';
-import Events from '../screens/events';
+import React, { Component } from "react";
+import News from "../screens/news";
+import Events from "../screens/events";
 
 export default class GTRouter extends Component {
-    render() {
-      return (
-        <Router>
-        <div>
-        <nav>
+  render() {
+    return (
+      <Router>
+        <div className="events">
+          <nav>
             <ul>
-            <li>
+              <li>
                 <Link to="/events">Events</Link>
-            </li>
-            <li>
+              </li>
+              <li>
                 <Link to="/news">News</Link>
-            </li>
+              </li>
             </ul>
-        </nav>
-      <Route path="/events" component={Events} />
-      <Route path="/news" component={News} />
-    </div>
-  </Router>
-      )
-    }
+          </nav>
+          <Route path="/events" component={Events} />
+          <Route path="/news" component={News} />
+        </div>
+      </Router>
+    );
   }
+}

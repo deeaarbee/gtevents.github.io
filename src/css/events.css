@@ -1,0 +1,26 @@
+body {
+    background: url('./whatsapp.png') repeat;
+    background-size: 30% 100%;
+}
+
+.events-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.events-row {
+    width: 100%;
+}
+
+.events-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.events-card {
+    margin: 2% 5% 0 2%;
+}
