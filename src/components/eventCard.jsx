@@ -15,6 +15,9 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import SendIcon from "@material-ui/icons/Send";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import Chip from "@material-ui/core/Chip";
+import Radium from "radium";
+import {Modal, OverlayTrigger, Button} from "react-bootstrap";
+
 class EventsCard extends React.Component {
   state = { expanded: false };
 
@@ -31,7 +34,9 @@ class EventsCard extends React.Component {
       date,
       reference,
       venue,
-      club
+      club,
+      endDate,
+      startDate,
     } = this.props;
 
     return (
@@ -67,7 +72,7 @@ class EventsCard extends React.Component {
           </IconButton>
 
           <IconButton aria-label="View" style={{ marginLeft: 40 }}>
-            <VisibilityIcon style={{ color: "black" }} />
+            {/* <VisibilityIcon style={{ color: "black" }} /> */}
           </IconButton>
           <IconButton
             className={classnames(classes.expand, {
@@ -80,15 +85,45 @@ class EventsCard extends React.Component {
             <SendIcon style={{ color: "black" }} />
           </IconButton>
         </CardActions>
-        <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>Description:</Typography>
-            <Typography paragraph>
+        
+
+        <Modal show={this.state.expanded} onHide={this.handleExpandClick}>
+          <Modal.Header closeButton>
+            <Modal.Title>{title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <h6>{club}</h6>
+            <p>
               {description}
-              <a href={reference}>Website</a>
-            </Typography>
-          </CardContent>
-        </Collapse>
+            </p>
+
+               <h3>Venue</h3>
+            <p>
+              {venue}
+            </p>
+
+             <h4>Date(s)</h4>
+            <p>
+
+              {startDate}
+              <br/>
+              to
+              <br/>
+              {endDate}
+              
+            </p>
+           
+          
+          </Modal.Body>
+          <Modal.Footer>
+          <Button onClick={() => window.location.href=reference}>Website</Button>
+            <Button onClick={this.handleExpandClick}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+
+
+
+
       </Card>
     );
   }
@@ -104,7 +139,8 @@ const styles = theme => ({
   media: {
     paddingTop: "56.25%", // 16:9
     height: 150,
-    width: 300
+    width: null,
+
   },
   actions: {
     display: "flex"
@@ -124,6 +160,15 @@ const styles = theme => ({
   },
   avatar: {
     backgroundColor: red[500]
+  },
+  '@media (max-width: 600px)':{
+    card: {
+      maxWidth: 300,
+      borderRadius: 10,
+      borderWidth: 1,
+      overflow: "hidden",
+      marginBottom: 10
+    },
   }
 });
 
@@ -133,9 +178,11 @@ EventsCard.propTypes = {
   description: PropTypes.string.isRequired,
   reference: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
   venue: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  club: PropTypes.string.isRequired
+  club: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired
 };
 
-export default withStyles(styles)(EventsCard);
+export default Radium(withStyles(styles)(EventsCard));

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NewsCard from "../components/newsCard";
 import { latestNews } from "../utils/api";
 import { simpleGet } from "../utils/functions";
-import { Col, Grid, Row } from "react-bootstrap";
+import { Grid } from "react-bootstrap";
 import "../css/news.css";
 export default class News extends Component {
   constructor(props) {
@@ -21,6 +21,8 @@ export default class News extends Component {
         console.log(error);
       });
   }
+
+  
 
   render() {
     return (

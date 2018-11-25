@@ -22,14 +22,19 @@ export default class Events extends Component {
       });
   }
 
+
+
   render() {
     return (
       <Grid className="events-container">
         <div className="row events-row">
-          {this.state.all_events.map(item => {
+          {this.state.all_events.map((item, index) => {
             var date = new Date(Date.parse(item.start_date));
+            let endDate = new Date(Date.parse(item.end_date));
+            let startDate = new Date(Date.parse(item.start_date));
             return (
               <EventsCard
+                key={index}
                 image={"https://guindytimes.com/" + item.image}
                 title={item.title}
                 date={date.toString().slice(3, 10)}
@@ -37,6 +42,8 @@ export default class Events extends Component {
                 club={item.club}
                 venue={item.venue}
                 reference={item.reference}
+                startDate={startDate.toDateString()}
+                endDate={endDate.toDateString()}
                 className="events-card col-centered col-md-4 col-centered"
               />
             );
