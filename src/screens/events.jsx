@@ -35,6 +35,7 @@ export default class Events extends Component {
             return (
               <EventsCard
                 key={index}
+                id={index}
                 image={"https://guindytimes.com/" + item.image}
                 title={item.title}
                 date={date.toString().slice(3, 10)}
@@ -44,7 +45,7 @@ export default class Events extends Component {
                 reference={item.reference}
                 startDate={startDate.toDateString()}
                 endDate={endDate.toDateString()}
-                className="events-card col-centered col-md-4 col-centered"
+                classname="events-card col-centered col-md-4 col-centered"
               />
             );
           })}

@@ -1,5 +1,8 @@
+.news-row{
+    margin-top: 5%;
+}
+
 .news-row .col-md-6 {
     margin: auto;
     margin-bottom: 20px;
-
 }

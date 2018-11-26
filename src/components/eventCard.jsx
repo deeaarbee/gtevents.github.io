@@ -16,7 +16,8 @@ import SendIcon from "@material-ui/icons/Send";
 import DirectionsIcon from "@material-ui/icons/Directions";
 import Chip from "@material-ui/core/Chip";
 import Radium from "radium";
-import {Modal, OverlayTrigger, Button} from "react-bootstrap";
+import { Modal, OverlayTrigger, Button } from "react-bootstrap";
+import "../css/eventscard.css";
 
 class EventsCard extends React.Component {
   state = { expanded: false };
@@ -25,9 +26,15 @@ class EventsCard extends React.Component {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
+  idCreation = id => {
+    const modalId = "#" + id;
+    return modalId;
+  };
+
   render() {
     const {
       classes,
+      id,
       title,
       description,
       image,
@@ -37,10 +44,11 @@ class EventsCard extends React.Component {
       club,
       endDate,
       startDate,
+      classname
     } = this.props;
 
     return (
-      <Card className={`${classes.card} ${this.props.className}`}>
+      <Card className={`${classes.card} ${classname}`}>
         <CardHeader
           action={
             <Chip
@@ -81,49 +89,106 @@ class EventsCard extends React.Component {
             onClick={this.handleExpandClick}
             aria-expanded={this.state.expanded}
             aria-label="Show more"
+            data
+            data-toggle="modal"
+            data-target={this.idCreation(id)}
           >
             <SendIcon style={{ color: "black" }} />
           </IconButton>
         </CardActions>
-        
 
-        <Modal show={this.state.expanded} onHide={this.handleExpandClick}>
-          <Modal.Header closeButton>
-            <Modal.Title>{title}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body style={{width: 'auto'}}>
-            <h6>{club}</h6>
-            <p>
-              {description}
-            </p>
+        <div id={id} className="modal fade" role="dialog">
+          <div className="modal-dialog">
+            <div className="row modal-content">
+              <div className="col-md-8 modal-content-left">
+                <div
+                  className="modal-close-button"
+                  data-dismiss="modal"
+                  onClick={this.handleExpandClick}
+                />
+                <div className="modal-heading">
+                  <h2 className="modal-heading-h2">{title}</h2>
+                  <div>
+                    <span>
+                      {" "}
+                      <strong>Club :</strong> {club}
+                      <br /><br/>
+                      <h3 className="date modal-date">
+                        <span><b>From</b> : {startDate} </span>
+                          {"   "}
+                        <span><b>To</b> : {endDate}</span>
+                      </h3>
+                    </span>
+                  </div>
+                  <div className="modal-content-filler">
+                    <span>
+                      {description}
+                      <br />
+                      <br />
+                      <strong>Location : </strong>
+                      {venue}
+                    </span>
+                  </div>
 
-               <h3>Venue</h3>
-            <p>
-              {venue}
-            </p>
+                  <div className="modal-button-div">
+                    <button
+                      className="btn modal-button"
+                      data-dismiss="modal"
+                      onClick={() => (window.location.href = reference)}
+                    >
+                      Website{" "}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4 vcenter modal-content-right">
+                <div
+                  className="mobile-modal-close-button mobile-modal-close"
+                  data-dismiss="modal"
+                  onClick={this.handleExpandClick}
+                />
+                <img src={image} className="modal-imgs" />
+                <div className="modal-mobile-button-div">
+                  <button
+                    className="btn-primary modal-button img-btn"
+                    data-dismiss="modal"
+                    onClick={() => (window.location.href = reference)}
+                  >
+                    Website{" "}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-             <h4>Date(s)</h4>
-            <p>
+        {/*<Modal show={this.state.expanded} onHide={this.handleExpandClick}>*/}
+        {/*<Modal.Header closeButton>*/}
+        {/*<Modal.Title>{title}</Modal.Title>*/}
+        {/*</Modal.Header>*/}
+        {/*<Modal.Body style={{ width: "auto" }}>*/}
+        {/*<h6>{club}</h6>*/}
+        {/*<p>{description}</p>*/}
 
-              {startDate}
-              <br/>
-              to
-              <br/>
-              {endDate}
-              
-            </p>
-           
-          
-          </Modal.Body>
-          <Modal.Footer>
-          <Button onClick={() => window.location.href=reference}>Website</Button>
-            <Button onClick={this.handleExpandClick}>Close</Button>
-          </Modal.Footer>
-        </Modal>
+        {/*<h3>Venue</h3>*/}
+        {/*<p>{venue}</p>*/}
 
-
-
-
+        {/*<h4>Date(s)</h4>*/}
+        {/*<p>*/}
+        {/*{startDate}*/}
+        {/*<br />*/}
+        {/*to*/}
+        {/*<br />*/}
+        {/*{endDate}*/}
+        {/*</p>*/}
+        {/*</Modal.Body>*/}
+        {/*<Modal.Footer>*/}
+        {/*<Button onClick={() => (window.location.href = reference)}>*/}
+        {/*Website*/}
+        {/*</Button>*/}
+        {/*<Button onClick={this.handleExpandClick}>Close</Button>*/}
+        {/*</Modal.Footer>*/}
+        {/*</Modal>*/}
       </Card>
     );
   }
@@ -139,8 +204,7 @@ const styles = theme => ({
   media: {
     paddingTop: "56.25%", // 16:9
     height: 150,
-    width: null,
-
+    width: null
   },
   actions: {
     display: "flex"
@@ -161,15 +225,15 @@ const styles = theme => ({
   avatar: {
     backgroundColor: red[500]
   },
-  '@media (max-width: 600px)':{
+  "@media (max-width: 600px)": {
     card: {
       maxWidth: 300,
       borderRadius: 10,
       borderWidth: 1,
       overflow: "hidden",
       marginBottom: 10,
-      marginLeft: 20,
-    },
+      marginLeft: 20
+    }
   }
 });
 

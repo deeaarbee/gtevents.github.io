@@ -2,6 +2,20 @@ body {
     background: url('./whatsapp.png') repeat;
     background-size: 30% 100%;
 }
+@font-face{
+    font-family: "Gilroy-ExtraBold";
+    src: url("./fonts/Gilroy-ExtraBold.ttf");
+}
+
+@font-face{
+    font-family: "Gilroy-Light";
+    src: url("./fonts/Gilroy-Light.ttf");
+}
+
+@font-face{
+    font-family: "Lato-Regular";
+    src: url("./fonts/Lato-Regular.ttf");
+}
 
 .events-container {
     display: flex;
@@ -12,6 +26,8 @@ body {
 
 .events-row {
     width: 100%;
+    padding: 5%;
+    text-align: left;
 }
 
 .events-col {
@@ -23,28 +39,25 @@ body {
 
 .events-card {
     margin: 2%;
-
+    text-align: left;
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
     .events-card {
         width: 100%;
         justify-content: center;
-    
+        margin: 3% 0 !important;
     }
     .events-row {
         width: 100%;
         justify-content: center;
-
     }
-
     .events-col {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
     }
-
     .events-container {
         display: flex;
         justify-content: center;
@@ -52,5 +65,4 @@ body {
         align-self: center;
         text-align: center;
     }
-    
 }

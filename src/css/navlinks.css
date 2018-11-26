@@ -1,0 +1,79 @@
+@font-face{
+    font-family: "Gilroy-ExtraBold";
+    src: url("./fonts/Gilroy-ExtraBold.ttf");
+}
+
+@font-face{
+    font-family: "Gilroy-Light";
+    src: url("./fonts/Gilroy-Light.ttf");
+}
+
+@font-face{
+    font-family: "Lato-Regular";
+    src: url("./fonts/Lato-Regular.ttf");
+}
+.events-news{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.events-news a {
+    margin: 3% 5% 0 5%;
+    background-color: whitesmoke;
+    padding: 2% 5%;
+    border-radius: 20px;
+    opacity: 1;
+}
+
+/*.events-tab,.news-tab{*/
+    /*margin: 3% 5% 0 5%;*/
+    /*background-color: whitesmoke;*/
+    /*padding:3.5% 2%;*/
+    /*border-radius:50%;*/
+/*}*/
+
+#events,#news{
+    font-size: 1.5em;
+    color: #C92627;
+}
+
+.events-link i span,.news-link i span{
+    font-family: Gilroy-ExtraBold,sans-serif;
+}
+
+.events-news a:hover{
+    background-color:#C92627;
+}
+.events-link:hover > #events,.news-link:hover > #news{
+    color: whitesmoke;
+}
+
+
+.fade-enter {
+    opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+    opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-in;
+}
+
+@media (max-width: 720px) {
+    .events-news a {
+        margin: 3% 5% 0 5%;
+        background-color: whitesmoke;
+        padding: 4% 6%;
+        border-radius: 20px;
+        opacity: 1;
+    }
+}
