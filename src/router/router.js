@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import News from "../screens/news";
 import Events from "../screens/events";
 import "../css/navlinks.css";
+import Logo from "../css/gttrans.png";
 import { Transition, TransitionGroup } from "react-transition-group";
 
 class GTRouter extends Component {
@@ -10,6 +11,9 @@ class GTRouter extends Component {
     return (
       <div className="events-news-container">
         <div className="events-news">
+            <div className="gt-logo">
+                <img src={Logo} alt=""/>
+            </div>
           <Link to="/events" className="events-link">
             <i className="fa fa-calendar" id="events">
               {" "}

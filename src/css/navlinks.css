@@ -49,31 +49,34 @@
     color: whitesmoke;
 }
 
-
-.fade-enter {
-    opacity: 0.01;
+.events-news .gt-logo{
+    position: absolute;
+    top:5%;
+    left:2%;
 }
 
-.fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-}
-
-.fade-exit {
-    opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-    opacity: 0.01;
-    transition: opacity 300ms ease-in;
+.events-news .gt-logo img{
+    width: 100px;
+    height: 100px;
 }
 
 @media (max-width: 720px) {
     .events-news a {
-        margin: 3% 5% 0 5%;
+        margin: 35% 5% 0 5%;
         background-color: whitesmoke;
         padding: 4% 6%;
         border-radius: 20px;
         opacity: 1;
+    }
+    .events-news .gt-logo{
+        position: absolute;
+        top:8%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .events-news .gt-logo img{
+        width: 100px;
+        height: 100px;
     }
 }

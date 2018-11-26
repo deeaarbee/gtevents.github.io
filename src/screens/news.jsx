@@ -28,6 +28,7 @@ export default class News extends Component {
     return (
       <Grid>
         <div className="row news-row">
+          <h1>Latest News :</h1>
           {this.state.all_news.map(item => {
             var date = new Date(Date.parse(item.created_at));
             return (

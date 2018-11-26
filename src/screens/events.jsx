@@ -28,6 +28,7 @@ export default class Events extends Component {
     return (
       <Grid className="events-container">
         <div className="row events-row">
+            <h1>Upcoming Events :</h1>
           {this.state.all_events.map((item, index) => {
             var date = new Date(Date.parse(item.start_date));
             let endDate = new Date(Date.parse(item.end_date));
