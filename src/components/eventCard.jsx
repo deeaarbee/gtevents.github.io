@@ -18,7 +18,14 @@ import Chip from "@material-ui/core/Chip";
 import Radium from "radium";
 import { Modal, OverlayTrigger, Button } from "react-bootstrap";
 import "../css/eventscard.css";
+import AddToCalendar from 'react-add-to-calendar';
+import moment from 'moment';
 
+let items = [
+  { apple: 'Apple Calendar' },
+  { google: 'Google' }
+];
+let icon = { 'calendar-plus-o': 'left' };
 class EventsCard extends React.Component {
   state = { expanded: false };
 
@@ -46,6 +53,15 @@ class EventsCard extends React.Component {
       startDate,
       classname
     } = this.props;
+
+    let event = {
+      title: title,
+      description: 'Ready to attend the event?',
+      location: venue,
+      startTime: moment.utc(startDate).add({hours: 6, minutes: 30}).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'),
+      endTime: moment.utc(endDate).add({hours: 6, minutes: 30}).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'),
+      allDay: true
+    }
 
     return (
       <Card className={`${classes.card} ${classname}`}>
@@ -94,6 +110,7 @@ class EventsCard extends React.Component {
             data-target={this.idCreation(id)}
           >
             <SendIcon style={{ color: "black" }} />
+            
           </IconButton>
         </CardActions>
 
@@ -138,6 +155,7 @@ class EventsCard extends React.Component {
                     >
                       Website{" "}
                     </button>
+                    <AddToCalendar event={event} buttonLabel="Add event to calender" listItems={items} buttonTemplate={icon}/>
                   </div>
                 </div>
               </div>
@@ -156,11 +174,13 @@ class EventsCard extends React.Component {
                   >
                     Website{" "}
                   </button>
+                  <AddToCalendar event={event} buttonLabel="Add event to calender" listItems={items} buttonTemplate={icon}/>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        
 
         {/*<Modal show={this.state.expanded} onHide={this.handleExpandClick}>*/}
         {/*<Modal.Header closeButton>*/}
