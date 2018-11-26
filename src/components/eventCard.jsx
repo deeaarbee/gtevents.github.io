@@ -91,7 +91,7 @@ class EventsCard extends React.Component {
           <Modal.Header closeButton>
             <Modal.Title>{title}</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{width: 'auto'}}>
             <h6>{club}</h6>
             <p>
               {description}
@@ -167,7 +167,8 @@ const styles = theme => ({
       borderRadius: 10,
       borderWidth: 1,
       overflow: "hidden",
-      marginBottom: 10
+      marginBottom: 10,
+      marginLeft: 20,
     },
   }
 });

@@ -25,3 +25,32 @@ body {
     margin: 2%;
 
 }
+
+@media (max-width: 600px){
+    .events-card {
+        width: 100%;
+        justify-content: center;
+    
+    }
+    .events-row {
+        width: 100%;
+        justify-content: center;
+
+    }
+
+    .events-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .events-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        text-align: center;
+    }
+    
+}
